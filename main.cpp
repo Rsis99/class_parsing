@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    char nome[] = "polygon.json";
+    char nome[] = "~/Desktop/Qt-projects/class_parsing/polygon.json";
     QCoreApplication app(argc, argv);
 
     MainClass myMain;
