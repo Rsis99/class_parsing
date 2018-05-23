@@ -12,9 +12,11 @@ private:
     QCoreApplication *app;
 
 public:
-    void ApriFile(char *nomefile);
-
-//    void readJson(char* nomefile);
+    void MyParsing(char *nomefile);
+    void Position();
+    void LineString();
+    void LinearRing();
+    void Polygon();
 
     explicit MainClass(QObject *parent = 0);
 

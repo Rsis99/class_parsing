@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    char nome[] = "~/Desktop/Qt-projects/class_parsing/polygon.json";
+    char name[] = "~/Desktop/Qt-projects/class_parsing/point.json";
     QCoreApplication app(argc, argv);
 
     MainClass myMain;
@@ -19,8 +19,7 @@ int main(int argc, char *argv[])
     QObject::connect(&app, SIGNAL(aboutToQuit()),
              &myMain, SLOT(aboutToQuitApp()));
 
-    void ApriFile(char *nome);
-
+    void MyParsing(char *name);
 
 
 //    void readJson(char *fileJSON);
@@ -29,8 +28,7 @@ int main(int argc, char *argv[])
     // 10ms it will start the execution in the MainClass.run routine;
     QTimer::singleShot(10, &myMain, SLOT(run()));
 
-    myMain.ApriFile(nome);
-//    myMain.readJson(nome);
+    myMain.MyParsing(name);
 
     return app.exec();
 }
