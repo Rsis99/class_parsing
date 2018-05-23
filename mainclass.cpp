@@ -64,6 +64,9 @@ void MainClass::MyParsing(char *fileName) {
 
     QVariantMap mapObject = geoObject.toVariantMap();
 
+    qWarning() << endl << "Qmap extracted from the JSON object: " << endl <<mapObject << endl;
+
+
     // GaoJSON types are not extendible as written in RFC 7946 cap. 7
 
     QString geojsonTypes[] = {"FeatureCollection",
@@ -121,20 +124,40 @@ void MainClass::MyParsing(char *fileName) {
         qWarning() << " [x] coordinates check failed - Invalid GeoJSON document: no \"coordinates\" key in the object.";
         return;
     }
-    const char* pippo = " QVariantList";
+    const QString pippo = "QVariantList";
     qDebug() << "tipo del valore del member coordinates" << pippo;
 
-    if( coordinateskey.typeName() != pippo)
+    QVariant pluto = coordinateskey.typeName();
+    if (pluto.toString() != pippo)
     {
         qWarning() << " [x] coordinates check failed - Invalid GeoJSON document: \"coordinates\" key has not an array value.";
         return;
     } else {
         qWarning() << " [v] coordinates check no. 1 passed -  \"coordinates\" key has an array value.";
     }
-    if ((coordinateskey.toList()).count()<2)
-        qWarning() << "Coordinates does not accept less then 2 value";
-    if ((coordinateskey.toList()).count()>4)
-        qWarning() << "The parser can have problems to extract data";
+
+    int arrayLength = coordinateskey.toList().count();
+    if (arrayLength < 2)
+        qWarning() << " [x] Coordinates does not accept less then 2 value";
+        return;
+    if (arrayLength > 3)
+        qWarning() << " [o] ";
+    QString correctType = "double";
+    QVariantList::iterator iter;
+    iter.toList();
+    for (iter = coordinateskey.toList().begin();
+         iter != coordinateskey.toList().end();
+         ++iter) {
+        qWarning() << "output iter" << *iter;
+        QString elementType = iter->typeName();
+        if (elementType == correctType) {
+            qWarning() << " [v] ";
+        } else {
+            qWarning() << " [x] ";
+            return;
+        }
+
+    }
 
     //            case "MultiPoint":
     //                break;
@@ -168,8 +191,6 @@ void MainClass::MyParsing(char *fileName) {
     //                qWarning() << mapObject.value("type") << "It's not a valid value";
     //                break;
     //            }
-
-    qDebug() << endl << "Qmap extracted from the JSON object: " << endl <<mapObject << endl;
 
 }
 
