@@ -19,9 +19,6 @@ int main(int argc, char *argv[])
     QObject::connect(&app, SIGNAL(aboutToQuit()),
              &myMain, SLOT(aboutToQuitApp()));
 
-    void MyParsing(char *name);
-
-
 //    void readJson(char *fileJSON);
 
     // This code will start the messaging engine in QT and in

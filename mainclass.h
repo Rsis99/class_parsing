@@ -12,6 +12,10 @@ private:
     QCoreApplication *app;
 
 public:
+
+    bool ValidateMultiPointCoordinates(QVariant shell);
+    bool ValidateLineStringCoordinates(QVariant array);
+    bool ValidateGeoJSONPosition (QVariant list);
     void MyParsing(char *nomefile);
     void Position();
     void LineString();
