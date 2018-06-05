@@ -1,4 +1,5 @@
 QT -= gui
+QT += positioning
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -16,9 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    mainclass.cpp \
+    QGeoJsonParser.cpp
 
 HEADERS += \
-    mainclass.h \
-    mainclass.h \
+    QGeoJsonParser.h
 
