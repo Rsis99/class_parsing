@@ -33,32 +33,26 @@ public:
     QVariantList toGeometryCollection(QVariantMap geometryCollection);
 
     QVariantMap toFeature(QVariantMap feature);
-    QVariantList toFeatureCollection(QVariantMap featureCollection);
+    QList <QVariantMap> toFeatureCollection(QVariantMap featureCollection);
 
     QGeoCoordinate coordinatesForPoint(QVariant obtainedCoordinates); // converts a single position
     QList <QGeoCoordinate> coordinatesForLineString(QVariant obtainedCoordinates); // converts an array of positions
     QList <QGeoCoordinate> coordinatesForPolygon(QVariant obtainedCoordinates); // converts an array of array of positions
 
-    // object members
     QVariantMap geometry(QVariantMap geometryMember);
-    QVariantMap properties(QVariantMap propertiesMember);
-    QVariantList geometries(QVariantList geometriesMember);
-    QVariantList feautures(QVariantList featuresMember);
 
-
-    void MyParsing(char *nomefile);
+    QVariantMap Provisioning(char *nomefile);
 
     explicit QGeoJsonParser(QObject *parent = 0);
 
     void quit();
 
 signals:
-
     void finished();
 
 public slots:
-
     void run();
 
 };
+
 #endif // QGEOJSONPARSER_H

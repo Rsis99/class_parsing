@@ -8,22 +8,20 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    char name[] = "~/home/jsh/Projects/class_parsing/point.json";
+    char name[] = "/home/jsh/Projects/class_parsing/polygon.json";
 
     QCoreApplication app(argc, argv);
 
-    QGeoJsonParser myMain;
+    QGeoJsonParser myParser;
 
     // connect up the signals
-    QObject::connect(&myMain, SIGNAL(finished()), &app, SLOT(quit()));
-
-    QObject::connect(&app, SIGNAL(aboutToQuit()), &myMain, SLOT(aboutToQuitApp()));
+    QObject::connect(&myParser, SIGNAL(finished()), &app, SLOT(quit()));
 
     // This code will start the messaging engine in QT and in
     // 10ms it will start the execution in the QGeoJsonParser.run routine;
-    QTimer::singleShot(10, &myMain, SLOT(run()));
+    QTimer::singleShot(10, &myParser, SLOT(run()));
 
-    myMain.MyParsing(name);
+    myParser.Provisioning(name);
 
     return app.exec();
 }
