@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     // 10ms it will start the execution in the QGeoJsonParser.run routine;
     QTimer::singleShot(10, &myParser, SLOT(run()));
 
-    myParser.Provisioning(name);
+    myParser.provisioning(name);
 
     return app.exec();
 }

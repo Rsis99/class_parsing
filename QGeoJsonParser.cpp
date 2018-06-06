@@ -477,7 +477,7 @@ QList <QGeoCoordinate> QGeoJsonParser::coordinatesForPolygon(QVariant coordinate
 
 // Reading GeoJSON file
 
-QVariantMap QGeoJsonParser::Provisioning(char *fileName)
+QVariantMap QGeoJsonParser::provisioning(char *fileName)
 {
     QFile file(fileName);
     QByteArray contents;

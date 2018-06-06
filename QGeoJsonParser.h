@@ -41,7 +41,7 @@ public:
 
     QVariantMap geometry(QVariantMap geometryMember);
 
-    QVariantMap Provisioning(char *nomefile);
+    QVariantMap provisioning(char *name);
 
     explicit QGeoJsonParser(QObject *parent = 0);
 
